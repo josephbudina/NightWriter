@@ -19,4 +19,8 @@ class TranslationTest < Minitest::Test
 
   assert_equal expected, @translation.alphabet["a"]
   end
+
+  def test_translate
+    assert_equal ["00", "..", ".."], @translation.translate("c")
+  end
 end
