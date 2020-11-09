@@ -36,9 +36,9 @@ class TranslationTest < Minitest::Test
     assert_equal expected, @translation.render_text("hello")
   end
 
-  # def test_translate_words
-  #   expected = []
-  #   pr
-  #   assert_equal 
-  # end
+  def test_translate_words
+    expected = "0..0" + "\n" + "000." + "\n" + "...."
+    
+    assert_equal expected, @translation.translate_words("hi")
+  end
 end
