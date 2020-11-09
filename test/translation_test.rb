@@ -31,7 +31,7 @@ class TranslationTest < Minitest::Test
   end
 
   def test_render_words
-    expected = [["0.", "00", "..", "0.", ".0", "..", "0.", "0.", "0.", "0.", "0.", "0.", "0.", ".0", "0."]]
+    expected = ["0.", "00", "..", "0.", ".0", "..", "0.", "0.", "0.", "0.", "0.", "0.", "0.", ".0", "0."]
 
     assert_equal expected, @translation.render_text("hello")
   end

@@ -60,7 +60,7 @@ class Translation
   end
   
   def render_text(text)
-    translate(text).each_slice(40).to_a
+    translate(text).each_slice(40).to_a.flatten
   end
 
   #translate from bralle to english as well
@@ -77,7 +77,7 @@ class Translation
     middle = []
     bottom = []
     lines = []
-    translate_words(text).each do |letter|
+    translate_words(text).map do |letter|
       top << letter[0]
       middle << letter[1]
       bottom << letter[2]
