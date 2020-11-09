@@ -16,11 +16,29 @@ class TranslationTest < Minitest::Test
   
   def test_alphabet
   expected = ["0.", "..", ".."]
+  expected2 = [".0", "00", ".0"] 
+  expected3 = ["..", "0.", ".."]
 
   assert_equal expected, @translation.alphabet["a"]
+  assert_equal expected2, @translation.alphabet["w"]
+  assert_equal expected3, @translation.alphabet[","]
+
   end
 
   def test_translate
     assert_equal ["00", "..", ".."], @translation.translate("c")
+    assert_equal [".0", "00", ".0"], @translation.translate("w")
   end
+
+  def test_render_words
+    expected = [["0.", "00", "..", "0.", ".0", "..", "0.", "0.", "0.", "0.", "0.", "0.", "0.", ".0", "0."]]
+
+    assert_equal expected, @translation.render_text("hello")
+  end
+
+  # def test_translate_words
+  #   expected = []
+  #   pr
+  #   assert_equal 
+  # end
 end
