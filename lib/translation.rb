@@ -58,4 +58,8 @@ class Translation
       alphabet[letter]
     end
   end
+  
+  def render_text(text)
+    translate(text).each_slice(40).to_a
+  end
 end
