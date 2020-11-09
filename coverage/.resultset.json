@@ -1,0 +1,30 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "/Users/josephbudina/turing/projects/night_writer/lib/night_writer.rb": {
+        "lines": [
+          1,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0
+        ]
+      }
+    },
+    "timestamp": 1604865182
+  }
+}
