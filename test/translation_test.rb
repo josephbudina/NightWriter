@@ -37,8 +37,16 @@ class TranslationTest < Minitest::Test
   end
 
   def test_translate_words
-    expected = "0..0" + "\n" + "000." + "\n" + "...."
+    expected = [["0.", "00", ".."], ["0.", ".0", ".."], ["0.", "0.", "0."], ["0.", "0.", "0."], ["0.", ".0", "0."], ["..", "..", ".."], [".0", "00", ".0"], ["0.", ".0", "0."], ["0.", "00", "0."], ["0.", "0.", "0."], ["00", ".0", ".."]]
     
-    assert_equal expected, @translation.translate_words("hi")
+    assert_equal expected, @translation.translate_words("hello world")
+  end
+
+  def test_group_braille
+    expected = "0.0.0.0.0....00.0.0.00\n" +  
+                "00.00.0..0..00.0000..0\n" +
+                "....0.0.0....00.0.0..."
+
+    assert_equal expected, @translation.group_braille("hello world")
   end
 end
