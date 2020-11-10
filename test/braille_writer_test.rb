@@ -30,12 +30,6 @@ class BrailleWriterTest < Minitest::Test
     assert_equal [".0", "00", ".0"], @braille_writer.translate("w")
   end
 
-  def test_render_words
-    expected = ["0.", "00", "..", "0.", ".0", "..", "0.", "0.", "0.", "0.", "0.", "0.", "0.", ".0", "0."]
-
-    assert_equal expected, @braille_writer.render_text("hello")
-  end
-
   def test_translate_words
     expected = [["0.", "00", ".."], ["0.", ".0", ".."], ["0.", "0.", "0."], ["0.", "0.", "0."], ["0.", ".0", "0."], ["..", "..", ".."], [".0", "00", ".0"], ["0.", ".0", "0."], ["0.", "00", "0."], ["0.", "0.", "0."], ["00", ".0", ".."]]
     
