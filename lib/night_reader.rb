@@ -1,10 +1,10 @@
-require_relative './translation'
+require 'braille_writer'
 
 message = File.open(ARGV[0], "r")
 
 incoming_message = message.read
 
-braille_text = Translation.new(incoming_message)
+braille_text = BrailleWriter.new(incoming_message)
 
 message.close
 

@@ -6,7 +6,7 @@ incoming_message = message.read
 
 braille_text = BrailleWriter.new(incoming_message)
 
-translated = braille_text.render_text(incoming_message)
+translated = braille_text.group_braille(incoming_message)
 
 message.close
 
