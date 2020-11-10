@@ -1,8 +1,8 @@
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'mocha/minitest'
-require './lib/night_writer'
-require './lib/translation'
+# require './lib/night_writer'
+# require './lib/translation'
 
