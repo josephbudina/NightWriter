@@ -18,7 +18,6 @@ class BrailleWriter
     translate(text).each_slice(40).to_a.flatten
   end
 
-  #translate from bralle to english as well
   def translate_words(text)
     letters = []
     render_text(text).each_slice(3) do |letter|

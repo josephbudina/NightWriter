@@ -4,35 +4,27 @@ require './lib/braille_reader'
 
 class BrailleReaderTest < Minitest::Test
   def setup
-    text = './braille2.txt'
-    braille_message = File.open(text, "r")
-    incoming_braille = braille_message.read
-    english = File.open(ARGV[1], "w")
-    english.write(braille_message)
-    
-     
-    @braille_reader = BrailleReader.new(incoming_braille, english)
+    text = './braille.txt'
+    message = File.open(text, "r")
+    incoming_message = message.read
+    @braille_reader = BrailleReader.new(incoming_message)
   end
 
   def test_it_exists_with_attributes
     assert_instance_of BrailleReader, @braille_reader
 
-    text = './braille2.txt'
+    text = './braille.txt'
     braille_message = File.open(text, "r")
     incoming_braille = braille_message.read
-
-    assert_equal incoming_braille, @braille_reader.braille
+    
+    expected = ["0.0.0.0.0....00.0.0.00","00.00.0..0..00.0000..0","....0.0.0....00.0.0..."]
+    
+    assert_equal expected, @braille_reader.braille
   end
 
-  def test_it_can_write
-    text = './braille2.txt'
-    braille_message = File.open(text, "r")
-    incoming_braille = braille_message.read
-    english = File.open(ARGV[1], "w")
-    english.write(braille_message)
-    english.close 
-
-    @braille_reader.write_file
-    assert File.exist?("./message2.txt")
+  def test_organize
+    expected = ["0.00..", "0..0..", "0.0.0.", "0.0.0.", "0..00.", "......", ".000.0", "0..00.", "0.000.", "0.0.0."]
+    
+    assert_equal expected, @braille_reader.organize
   end
 end

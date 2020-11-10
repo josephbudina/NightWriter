@@ -1,4 +1,4 @@
-require 'braille_writer'
+require 'braille_reader'
 
 message = File.open(ARGV[0], "r")
 
