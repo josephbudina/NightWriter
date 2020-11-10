@@ -2,20 +2,27 @@ require_relative './dictionary'
 
 class BrailleReader
   include Dictionary 
-  attr_reader :braille,
-              :english 
+  attr_reader :braille
+              
   
-  def initialize(braille, english)
-    @braille = braille
-    @english = english
+  def initialize(braille)
+    @braille = braille.split("\n")
   end
 
-  def write_file
-    text = './braille2.txt'
-    braille_message = File.open(text, "r")
-    incoming_braille = braille_message.read
-    english = File.open(ARGV[1], "w")
-    english.write(braille_message)
-    english.close 
+  def organize
+    lines = []
+    @braille.each_slice(3) do |line|
+        while !line[0].empty? do 
+              @braille.each do |line|
+            lines << line.slice!(0..1)
+          end
+        end
+      end
+      result = []
+    lines.each_slice(3) do |letters|
+      result << letters.join
+    end
+    result.pop
+    result
   end
 end
