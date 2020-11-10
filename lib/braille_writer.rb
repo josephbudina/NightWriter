@@ -14,13 +14,10 @@ class BrailleWriter
     end
   end
   
-  def render_text(text)
-    translate(text).each_slice(40).to_a.flatten
-  end
 
   def translate_words(text)
     letters = []
-    render_text(text).each_slice(3) do |letter|
+    translate(text).each_slice(3) do |letter|
        letters << letter
     end
     letters
